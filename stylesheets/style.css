@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+/* Variáveis Globais */
+:root {
+    --primaria: #9A1924;
+    /* Tijolo */
+    --primaria-clara: #B69393;
+    --secundaria: #555555;
+    /* Cinza */
+    --fundo-escuro: #f8f9fa;
+    --fundo-claro: #ffffff;
+    --fundo-cartao: rgba(0, 0, 0, 0.03);
+    --texto-principal: #222222;
+    --texto-suave: #666666;
+    --destaque: #9A1924;
+    --vidro-fundo: rgba(255, 255, 255, 0.82);
+    --vidro-borda: rgba(0, 0, 0, 0.1);
+    --transicao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--fundo-escuro);
+    color: var(--texto-principal);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transicao);
+}
+
+/* Utilitário Vidro (Glassmorphism) */
+.vidro {
+    background: var(--vidro-fundo);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--vidro-borda);
+    border-radius: 16px;
+}
+
+/* Navegação */
+header.barra-navegacao {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transicao);
+}
+
+header.barra-navegacao.rolada {
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid var(--vidro-borda);
+}
+
+.links-nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.links-nav a:hover {
+    color: var(--primaria);
+}
+
+main {
+    margin-top: 80px;
+    padding: 2rem 5%;
+    min-height: 100vh;
+}
+
+/* Secções */
+section {
+    padding: 4rem 0;
+}
+
+h1,
+h2,
+h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Destaque (Hero) */
+.destaque {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 6rem 0;
+}
+
+.destaque-conteudo h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+@media (max-width: 992px) {
+    .destaque {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .destaque-conteudo {
+        order: 1;
+    }
+
+    .destaque-imagem {
+        order: 2;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Botões */
+.botao {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    transition: var(--transicao);
+}
+
+.botao-primario {
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    color: white;
+}
+
+.botao-primario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(154, 25, 36, 0.3);
+}
+
+/* Novidades */
+.grelha-novidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.cartao-novidade {
+    overflow: hidden;
+    transition: var(--transicao);
+}
+
+.cartao-novidade:hover {
+    transform: translateY(-10px);
+    border-color: var(--primaria);
+}
+
+.novidade-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px 12px 0 0;
+}
+
+.novidade-conteudo {
+    padding: 1.5rem;
+}
+
+/* Calendário */
+.item-calendario {
+    display: flex;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    transition: var(--transicao);
+}
+
+.item-calendario:hover {
+    transform: translateX(10px);
+    border-color: var(--primaria);
+}
+
+.emblema-data {
+    background: var(--fundo-cartao);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 80px;
+    border: 1px solid var(--vidro-borda);
+}
+
+/* Slideshow */
+.contentor-slideshow {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.slide.ativo {
+    opacity: 1;
+    z-index: 2;
+}
+
+.sobreposicao-slideshow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    z-index: 3;
+}
+
+.seta-slideshow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.seta-slideshow:hover {
+    background: var(--primaria);
+}
+
+.seta-ant {
+    left: 20px;
+}
+
+.seta-prox {
+    right: 20px;
+}
+
+/* Equipa */
+.seccao-depto {
+    margin-bottom: 4rem;
+}
+
+.titulo-depto {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primaria);
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--vidro-borda);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.grelha-direcao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grelha-membros {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.cartao-equipa {
+    padding: 2rem;
+    text-align: center;
+    transition: var(--transicao);
+}
+
+.cartao-equipa:hover {
+    transform: translateY(-5px);
+    border-color: var(--primaria);
+}
+
+.cartao-equipa.premium {
+    padding: 3rem 2rem;
+    border: 1px solid rgba(154, 25, 36, 0.2);
+}
+
+.cartao-equipa.membro {
+    padding: 1.5rem;
+}
+
+.foto-wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--primaria);
+    padding: 5px;
+    background: white;
+}
+
+.foto-wrapper.pequena {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--vidro-borda);
+}
+
+.foto-wrapper.mini {
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--vidro-borda);
+    margin-bottom: 1rem;
+}
+
+.foto-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.cargo {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Rodapé */
+.rodape {
+    padding: 4rem 5%;
+    background: var(--fundo-claro);
+    border-top: 1px solid var(--vidro-borda);
+    color: var(--texto-suave);
+}
+
+.grelha-rodape {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    text-align: left;
+    margin-bottom: 3rem;
+}
+
+.col-rodape h5 {
+    color: var(--primaria);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.col-rodape a {
+    display: block;
+    color: var(--texto-suave);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.col-rodape a:hover {
+    color: var(--primaria);
+}
+
+.icones-sociais {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.rodape-base {
+    border-top: 1px solid var(--vidro-borda);
+    padding-top: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Animações */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.revelar {
+    opacity: 0;
+}
+
+.revelar.animar-aparecer {
+    animation: aparecer 0.8s ease forwards;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+}
