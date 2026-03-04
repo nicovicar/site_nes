@@ -52,7 +52,8 @@
             <h2>Novidades</h2>
             <div class="grelha-novidades">
                 <div class="vidro cartao-novidade">
-                    <div class="novidade-img" style="background-image: url('assets/images/jornadas/cartaz.jpeg');"></div>
+                    <div class="novidade-img" style="background-image: url('assets/images/jornadas/cartaz.jpeg');">
+                    </div>
                     <div class="novidade-conteudo">
                         <span style="color: var(--primaria); font-size: 0.8rem; font-weight: 600;">JORNADAS X</span>
                         <h4 style="margin: 0.5rem 0;">Jornadas X</h4>
@@ -64,15 +65,31 @@
                             class="botao botao-primario" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Saber mais</a>
                     </div>
                 </div>
-                <div class="vidro cartao-novidade">
-                    <div class="novidade-img" style="background-color: #e9ecef;"></div>
-                    <div class="novidade-conteudo">
-                        <span style="color: var(--primaria-clara); font-size: 0.8rem; font-weight: 600;">WORKSHOP</span>
-                        <h4 style="margin: 0.5rem 0;">Workshops de Programação</h4>
-                        <p style="font-size: 0.9rem; color: var(--texto-suave);">Novos workshops práticos em tecnologias
-                            emergentes. Fica atento às inscrições.</p>
+            </div>
+        </section>
+
+        <!-- Secção de Galeria (Oculta temporariamente) -->
+        <section id="galeria" class="revelar" style="display: none;">
+            <h2>Galeria</h2>
+            <div class="grelha-galeria">
+                <!-- Álbum de Exemplo 1 -->
+                <div class="vidro cartao-galeria" data-album="album1">
+                    <div class="contentor-slideshow">
+                        <div class="slide ativo" style="background-image: url('assets/images/jornadas/cartaz.jpeg');">
+                        </div>
+                        <div class="slide" style="background-image: url('assets/images/direcao.jpeg');"></div>
+                        <div class="slide" style="background-image: url('assets/images/logo nes.png');"></div>
+                        <div class="sobreposicao-slideshow"></div>
+                        <div class="seta-slideshow seta-ant"><i class="fas fa-chevron-left"></i></div>
+                        <div class="seta-slideshow seta-prox"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="galeria-info">
+                        <h4>Jornadas X - Melhores Momentos</h4>
+                        <p>Março 2026</p>
                     </div>
                 </div>
+
+                <!-- Adicionar mais cartões de galeria aqui -->
             </div>
         </section>
 
@@ -132,6 +149,24 @@
             <p>&copy; 2026 NES ISEP. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- Modal da Galeria -->
+    <div id="modal-galeria" class="modal">
+        <div class="modal-conteudo vidro">
+            <span class="fechar-modal">&times;</span>
+            <div class="modal-cabecalho">
+                <h3 id="modal-titulo">Título do Álbum</h3>
+                <div class="modal-acoes">
+                    <button id="btn-download-selecionadas" class="botao botao-primario" style="display:none;">Download
+                        Selecionadas</button>
+                    <button id="btn-selecionar-todas" class="botao vidro">Selecionar Todas</button>
+                </div>
+            </div>
+            <div id="modal-grelha-fotos" class="grelha-fotos-modal">
+                <!-- Fotos serão inseridas aqui via JS -->
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
