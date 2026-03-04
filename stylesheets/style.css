@@ -172,9 +172,11 @@ h2 {
 }
 
 .novidade-img {
-    height: 200px;
+    height: 300px;
+    /* Aumentado de 200px para melhor visualização de cartazes */
     background-size: cover;
-    background-position: center;
+    background-position: top center;
+    /* Garante que o topo do cartaz seja sempre visível */
     border-radius: 12px 12px 0 0;
 }
 
