@@ -431,9 +431,19 @@ h2 {
     animation: aparecer 0.8s ease forwards;
 }
 
+.about-container {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
 @media (max-width: 768px) {
     .about-container {
         grid-template-columns: 1fr;
+        padding: 1.5rem;
+        gap: 1.5rem;
     }
 }
 
@@ -600,5 +610,89 @@ h2 {
         margin: 10% auto;
         width: 95%;
         padding: 1.5rem;
+    }
+
+    header.barra-navegacao {
+        padding: 1rem 5%;
+    }
+
+    .links-nav {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .destaque {
+        padding: 3rem 0;
+    }
+
+    .destaque-conteudo h1 {
+        font-size: 2.2rem;
+    }
+
+    .destaque-conteudo p,
+    .texto-sobre p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .botoes-destaque {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .botoes-destaque .botao {
+        margin-left: 0 !important;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .contentor-slideshow,
+    .novidade-img {
+        height: 250px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .grelha-galeria,
+    .grelha-novidades,
+    .grelha-direcao {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 2.5rem 0;
+    }
+
+    .item-calendario {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .item-calendario>div:last-child {
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .grelha-membros {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    }
+
+    .foto-wrapper.mini {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cartao-equipa.membro {
+        padding: 1rem;
+    }
+
+    .cartao-equipa.membro h5 {
+        font-size: 0.9rem;
     }
 }
